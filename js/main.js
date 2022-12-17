@@ -42,13 +42,17 @@
     var create_and_append_markers = function(ids) {
         $markers.html('');
         ids.forEach(function(id) {
-            var marker = new ArucoMarker(id);
+            var svg = ""
+            if (id >= 0) {
+                var marker = new ArucoMarker(id);
+                svg = marker.toSVG();
+            }
             var $marker = $('<div></div>')
                 .addClass('marker')
                 .css('width', width)
                 .css('padding-bottom', spacing)
                 .css('padding-left', spacing);
-            $marker.html(marker.toSVG());
+            $marker.html(svg);
             $markers.append($marker);
         });
     };
@@ -88,7 +92,7 @@
         var num = Number($marker_width.val()) + 'cm';
         if (num) {
             width = num;
-            $('.marker').css('width', num);
+            $('.marker').css('width', num).css('height', num);
         }
     };
 
