@@ -50,9 +50,9 @@
             var $marker = $('<div></div>')
                 .addClass('marker')
                 .css('width', width)
-                .css('padding-bottom', spacing)
-                .css('padding-left', spacing);
+                .css('padding', spacing);
             $marker.html(svg);
+            $marker.children()[0].classList.add(`aruco${id}`);
             $markers.append($marker);
         });
     };
@@ -97,10 +97,10 @@
     };
 
     var marker_spacing_callback = function() {
-        var num = Number($marker_spacing.val()) + 'cm';
+        var num = Number($marker_spacing.val())/2 + 'cm';
         if (num) {
-            spacing = num;
-            $('.marker').css('padding-bottom', num).css('padding-left', num);
+            spacing = num
+            $('.marker').css('padding', num);
         }
     };
 
