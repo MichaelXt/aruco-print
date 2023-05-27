@@ -17,7 +17,9 @@
       <form class="pure-form pure-form-stacked">
         <div class="pure-control-group">
           <label for="marker-count">number of markers</label>
-          <input class="" value="20" type="text" id="marker-count"></input>
+          <input class="" value="12" type="text" id="marker-count"></input>
+          <label for="marker-starting-num">start at</label>
+          <input class="" value="0" type="text" id="marker-starting-num"></input>
         </div>
         <label for="marker-random" class="pure-checkbox">
           <input id="marker-random" type="checkbox" value="" checked>
@@ -29,15 +31,17 @@
         </div>
         <div class="pure-control-group">
           <label for="marker-width">width in cm</label>
-          <input value="2" type="text" id="marker-width"></input>
+          <input value="4" type="text" id="marker-width"></input>
         </div>
         <div class="pure-control-group">
           <label for="marker-spacing">spacing in cm</label>
-          <input value="0.2" type="text" id="marker-spacing"></input>
+          <input value="2.8" type="text" id="marker-spacing"></input>
         </div>
       </form>
     </div>
-    <div id="markers" class="markers"></div>
+    <div class="markers-wrapper">
+      <div id="markers" class="markers"></div>
+    </div>
 
     <script src="js/vendor/aruco-marker.js"></script>
     <script src="js/vendor/jquery.js"></script>

@@ -100,6 +100,11 @@ textarea {
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: normal;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* height: 100%; */
 }
 
 .container {
@@ -116,12 +121,33 @@ body {
     padding: 4px;
 }
 
+.markers-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    /* border: solid thick blue; */
+}
+
 .markers {
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    /* margin: auto; */
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
+    /* width: 100%;
+    height: 100%; */
+    /* border: solid thick red; */
+    margin: auto;
+    /* flex-grow: 1; */
+    /* font-size: 0; */
+    line-height: 0;
 }
 
 .marker {
-    float: left;
+    /* float: left; */
+    display: inline-flex;
+    border: solid thin gray;
 }
 
 .marker svg {
