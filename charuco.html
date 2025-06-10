@@ -50,12 +50,22 @@
       return svg;
     }
 
+    function parseIntOrDefault(value, defaultValue) {
+      const parsed = parseInt(value, 10);
+      return isNaN(parsed) ? defaultValue : parsed;
+    }
+
+    function parseFloatOrDefault(value, defaultValue) {
+      const parsed = parseFloat(value, 10);
+      return isNaN(parsed) ? defaultValue : parsed;
+    }
+
     function getParamsFromURL({defaultCols = 7,defaultRows = 5,defaultStartingId = 20,defaultPadding = 0.1} = {}) {
       const urlParams = new URLSearchParams(window.location.search);
-      const cols = parseInt(urlParams.get('cols')) || defaultCols;
-      const rows = parseInt(urlParams.get('rows')) || defaultRows;
-      const startingId = parseInt(urlParams.get('startingId')) || defaultStartingId;
-      const padding = parseFloat(urlParams.get('padding')) || defaultPadding;
+      const cols = parseIntOrDefault(urlParams.get('cols'), defaultCols);
+      const rows = parseIntOrDefault(urlParams.get('rows'), defaultRows);
+      const startingId = parseIntOrDefault(urlParams.get('startingId'), defaultStartingId);
+      const padding = parseFloatOrDefault(urlParams.get('padding'), defaultPadding);
       return { cols, rows, startingId, padding };
     }
 
